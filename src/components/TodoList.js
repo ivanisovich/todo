@@ -4,15 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { addTodo, removeTodo, updateTodo, completeTodo } from "../redux/action";
 import Todo from "./Todo";
 import {
-  StyledTodoEmpty,
+  TodoEmpty,
   ButtonWrapper,
   ButtonModalOpen,
-  StyledList,
+  StyledTodoList,
 } from "../styles/main";
 import modalButtonImg from "../img/add.png";
 
 const TodoList = ({ editingList }) => {
-  const state = useSelector((state) => ({ ...state.todos }));
+  const todos = useSelector((state) => ({ ...state.todos }));
   const [modalOpen, setModalOpen] = useState(false);
 
   let dispatch = useDispatch();
@@ -32,18 +32,22 @@ const TodoList = ({ editingList }) => {
   return (
     <>
       {modalOpen ? (
-        <TodoInput createTodo={create} handler={handleModalClose}></TodoInput>
+        <TodoInput
+          setModalOpen={setModalOpen}
+          createTodo={create}
+          handler={handleModalClose}
+        ></TodoInput>
       ) : (
         <>
-          <StyledList>
-            {state.todos && state.todos.length == 0 ? (
+          <StyledTodoList>
+            {todos && todos.allTodos.length === 0 ? (
               <>
-                <StyledTodoEmpty>Список задач пуст</StyledTodoEmpty>
+                <TodoEmpty>Список задач пуст</TodoEmpty>
               </>
             ) : (
               <>
-                {state.todos &&
-                  state.todos.map((todo) => {
+                {todos.allTodos &&
+                  todos.allTodos.map((todo) => {
                     return (
                       <Todo
                         task={todo.task}
@@ -53,7 +57,7 @@ const TodoList = ({ editingList }) => {
                         toggleTodo={() => dispatch(completeTodo(todo))}
                         removeTodo={() => dispatch(removeTodo(todo))}
                         updateTodo={update}
-                        IsEditingList={editingList}
+                        isEditingList={editingList}
                       >
                         {todo.task}
                       </Todo>
@@ -61,8 +65,8 @@ const TodoList = ({ editingList }) => {
                   })}
               </>
             )}
-          </StyledList>
-          <ButtonWrapper onClick={handleModalOpen}>
+          </StyledTodoList>
+          <ButtonWrapper id="button-modal" onClick={handleModalOpen}>
             <ButtonModalOpen src={modalButtonImg}></ButtonModalOpen>
           </ButtonWrapper>
         </>

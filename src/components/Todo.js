@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import {
   StyledTodo,
-  StyledModal,
+  Modal,
   InputEditing,
   ButtonCloseEditing,
   ButtonAddTodo,
+  ButtonDeleteTodo,
 } from "../styles/main";
 import { motion } from "framer-motion";
+
 export const Todo = ({
   completed,
   toggleTodo,
@@ -14,13 +16,14 @@ export const Todo = ({
   removeTodo,
   updateTodo,
   id,
-  IsEditingList,
+  isEditingList,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editTask, setEditTask] = useState(task);
+
   const handleUpdate = (e) => {
     e.preventDefault();
-    if (editTask !== "") {
+    if (editTask.text !== "") {
       updateTodo(id, editTask);
       setIsEditing(false);
     }
@@ -30,35 +33,45 @@ export const Todo = ({
     <>
       {isEditing ? (
         <>
-        <motion.div animate={{ y:187 } } 
-          transition={{ ease: "easeOut", duration: 0.3 }}>
-          <StyledModal onSubmit={handleUpdate}>
-            <InputEditing
-              type="text"
-              name="task"
-              value={editTask}
-              onChange={(e) => setEditTask(e.target.value)}
-            />
-            <ButtonAddTodo>Сохранить</ButtonAddTodo>
-            <ButtonCloseEditing>Закрыть</ButtonCloseEditing>
-          </StyledModal>
+          <motion.div
+            animate={{ y: 187 }}
+            transition={{ ease: "easeOut", duration: 0.3 }}
+          >
+            <Modal onSubmit={handleUpdate}>
+              <InputEditing
+                type="text"
+                name="task"
+                value={editTask.text}
+                onChange={(e) =>
+                  setEditTask({ text: e.target.value, date: editTask.date })
+                }
+              />
+              <ButtonAddTodo>Сохранить</ButtonAddTodo>
+              <ButtonCloseEditing>Закрыть</ButtonCloseEditing>
+            </Modal>
           </motion.div>
         </>
       ) : (
         <>
-          {IsEditingList ? (
+          {isEditingList ? (
             <>
-              <div className={"deleting"}>
-                <button id="delete-button" onClick={removeTodo}></button>
+              <div className={"todo todo-deleting"}>
+                <ButtonDeleteTodo onClick={removeTodo}></ButtonDeleteTodo>
                 <StyledTodo onClick={() => setIsEditing(true)}>
-                  {task}
+                  {task.text}
+                  <p>{task.date.day}</p>
+                  <p>{task.date.time}</p>
                 </StyledTodo>
               </div>
             </>
           ) : (
             <>
-              <div className={completed ? "Todo completed" : "Todo"}>
-                <StyledTodo onClick={toggleTodo}>{task}</StyledTodo>
+              <div className={completed ? "todo todo-completed" : "todo"}>
+                <StyledTodo onClick={toggleTodo}>
+                  {task.text}
+                  <p>{task.date.day}</p>
+                  <p>{task.date.time}</p>
+                </StyledTodo>
               </div>
             </>
           )}

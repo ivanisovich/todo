@@ -7,36 +7,38 @@
   display: none;
 }
 
-.Todo {
+.todo {
   background-image: url("./img/todo_button.png");
   background-repeat: no-repeat;
-  background-position: 10.7vw 0vw;
-  padding-left:5.5vw;
-}
-.completed {
-  background-image: url("./img/todo_button_active.png");
-  background-repeat: no-repeat;
-}
-.completed li {
-  opacity: 0.6;
+  background-position: 10vw 40px;
+  padding-top: 20px;
+  padding-left: 5.5vw;
+  border-bottom: 0.5px solid #f2f2f2;
 }
 
-.deleting {
-  background-position: 10.7vw 0vw;
+.todo-deleting {
+  background-position: 10vw 40px;
   background-image: url("./img/delete_todo.png");
   background-repeat: no-repeat;
-}
-
-.deleting {
   padding-left: 5.5vw;
   margin-left: 0px;
 }
 
-#delete-button{
-  border:none;
-  background: transparent;
-  position: absolute;
-  margin-left: 3.4vw;
-  width: 30px;
-  height: 30px;
+.todo-completed {
+  background-image: url("./img/todo_button_active.png");
+  background-repeat: no-repeat;
+}
+
+.completed li {
+  opacity: 0.6;
+}
+
+@media (min-width: 1200px) {
+  #delete-button {
+    border: none;
+    background: transparent;
+    margin-left: 3.4vw;
+    width: 50px;
+    height: 30px;
+  }
 }

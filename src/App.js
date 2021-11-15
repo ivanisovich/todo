@@ -18,12 +18,12 @@ function App() {
   function handleListEditCompleted() {
     setIsEditingList(false);
   }
-  console.log(state);
+
   return (
     <Template>
       <Header>Сегодня</Header>
       <EditListButtons>
-        {state.todos.todos.length !== 0 ? (
+        {state.todos.allTodos.length !== 0 ? (
           <>
             {isEditingList ? (
               <ButtonCloseEditingList onClick={handleListEditCompleted}>

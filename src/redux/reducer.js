@@ -2,40 +2,43 @@ import * as types from "./actionTypes";
 import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
-  todos: [],
+  allTodos: [],
 };
 
 const todosReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.COMPLETE_TODO:
-      const toggleTodos = state.todos.map((t) =>
-        t.id === action.payload.id
+      const toggleTodos = state.allTodos.map((item) =>
+        typeof action.payload.completed === "boolean" &&
+        item.id === action.payload.id
           ? { ...action.payload, completed: !action.payload.completed }
-          : t
+          : item
       );
       return {
         ...state,
-        todos: toggleTodos,
+        allTodos: toggleTodos,
       };
     case types.ADD_TODO:
       const newTodo = {
         id: uuidv4(),
-        task: action.payload,
+        task: action.payload.task,
         completed: false,
       };
-      const addedTodos = [...state.todos, newTodo];
+      const addedTodos = [...state.allTodos, newTodo];
       return {
         ...state,
-        todos: addedTodos,
+        allTodos: addedTodos,
       };
     case types.REMOVE_TODO:
-      const filterTodo = state.todos.filter((t) => t.id !== action.payload.id);
+      const filterTodo = state.allTodos.filter(
+        (item) => item.id !== action.payload.id
+      );
       return {
         ...state,
-        todos: filterTodo,
+        allTodos: filterTodo,
       };
     case types.UPDATE_TODO:
-      const updatedTodos = state.todos.map((todo) => {
+      const updatedTodos = state.allTodos.map((todo) => {
         if (todo.id === action.payload.id) {
           return { ...todo, task: action.payload.task };
         }
@@ -43,7 +46,7 @@ const todosReducer = (state = initialState, action) => {
       });
       return {
         ...state,
-        todos: updatedTodos,
+        allTodos: updatedTodos,
       };
 
     default:

@@ -16,6 +16,6 @@ export const updateTodo = (todo) => ({
 });
 
 export const completeTodo = (todo) => ({
-    type: types.COMPLETE_TODO,
-    payload: todo
-})
+  type: types.COMPLETE_TODO,
+  payload: todo,
+});

@@ -13,44 +13,42 @@ export const Header = styled.h1`
   padding-left: 40px;
 `;
 
-export const StyledList = styled.ul`
+export const StyledTodoList = styled.ul`
   padding-top: 10px;
 `;
 
-export const StyledTodo = styled.li`
+export const StyledTodo = styled.div`
   font-size: 18px;
   padding-left: 10vw;
   letter-spacing: 0.2vw;
   font-weight: 500;
+  cursor: pointer;
   font-family: "Gilroy-Medium", sans-serif;
   list-style: none;
   margin-left: 19px;
   padding-bottom: 30px;
 `;
 
-export const StyledTodoEmpty = styled(StyledTodo)`
+export const TodoEmpty = styled(StyledTodo)`
   padding-left: 7vw;
 `;
 
-export const StyledModal = styled.form`
-  margin-left: auto;
-  margin-right: auto;
+export const Modal = styled.form`
+  margin-left: 35vw;
+  position: absolute;
+  height: calc(85vh - 150px);
   max-width: 300px;
   min-width: 180px;
   z-index: 1;
-  height: 47rem;
   margin-top: -12.2rem;
-  border-radius: 40px 40px 0px 0px;
+  border-radius: 40px 40px 40px 40px;
   padding: 41px;
 
+  display: block;
   background: #ffffff;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
 `;
 
-export const ModalWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;
 export const Input = styled.input`
   ::placeholder {
     color: #000;
@@ -81,7 +79,8 @@ export const InputEditing = styled(Input)`
   margin-bottom: 31px;
 `;
 
-export const ButtonClose = styled.button`
+export const ButtonCloseModal = styled.button`
+  cursor: pointer;
   text-transform: capitalize;
   font-family: "Gilroy-Medium", sans-serif;
   text-align: center;
@@ -102,10 +101,23 @@ export const ButtonClose = styled.button`
     width: 30vw;
   }
 `;
-export const ButtonCloseEditing = styled(ButtonClose)`
+export const ButtonDeleteTodo = styled.button`
+  border: none;
+  background: transparent;
+  margin-left: 3.4vw;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  z-index: 1;
+  margin-bottom: -30px;
+`;
+export const ButtonCloseEditing = styled(ButtonCloseModal)`
   margin-top: -2.3rem;
 `;
 export const ButtonCloseEditingList = styled.button`
+  cursor: pointer;
   color: #000;
   outline: none;
   border: none;
@@ -120,6 +132,7 @@ export const ButtonCloseEditingList = styled.button`
 `;
 
 export const ButtonAddTodo = styled.button`
+  cursor: pointer;
   @media (max-width: 360px) {
     width: 30vw;
   }
@@ -143,6 +156,7 @@ export const ButtonAddTodo = styled.button`
   margin-left: 41.8vw;
 `;
 export const ButtonWrapper = styled.button`
+  cursor: pointer;
   border: none;
   position: absolute;
   display: flex;
