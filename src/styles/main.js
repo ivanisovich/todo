@@ -13,6 +13,14 @@ export const Header = styled.h1`
   padding-left: 40px;
 `;
 
+export const Title = styled.p`
+  font-family: "Gilroy-Bold", sans-serif;
+
+  font-size: 16px;
+  padding-bottom: 43px;
+  padding-left: 40px;
+`;
+
 export const StyledTodoList = styled.ul`
   padding-top: 10px;
 `;
@@ -184,9 +192,9 @@ export const ButtonModalOpen = styled.img`
 `;
 
 export const EditListButtons = styled.div`
-  position: absolute;
-  margin-left: 15.9rem;
-  margin-top: -4.57rem;
+
+  margin-left: 40px;
+
 `;
 
 export const ButtonRemoveTodo = styled.div`

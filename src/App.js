@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import {
   Template,
   Header,
+  Title,
   EditListButtons,
   ButtonCloseEditingList,
 } from "./styles/main";
@@ -22,6 +23,7 @@ function App() {
   return (
     <Template>
       <Header>Сегодня</Header>
+      <Title>Что-бы изменить todo , нужно нажать на текст в режиме редактирования ( кнопка править ) .</Title>
       <EditListButtons>
         {state.todos.allTodos.length !== 0 ? (
           <>
