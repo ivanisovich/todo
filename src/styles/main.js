@@ -15,7 +15,6 @@ export const Header = styled.h1`
 
 export const Title = styled.p`
   font-family: "Gilroy-Bold", sans-serif;
-
   font-size: 16px;
   padding-bottom: 43px;
   padding-left: 40px;
@@ -160,7 +159,6 @@ export const ButtonAddTodo = styled.button`
   border: none;
   width: 137px;
   display: block;
-
   margin-left: 41.8vw;
 `;
 export const ButtonWrapper = styled.button`
@@ -192,14 +190,11 @@ export const ButtonModalOpen = styled.img`
 `;
 
 export const EditListButtons = styled.div`
-
   margin-left: 40px;
-
 `;
 
 export const ButtonRemoveTodo = styled.div`
   background: color;
-
   padding-left: 20px;
   border: none;
 `;
