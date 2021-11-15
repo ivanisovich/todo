@@ -23,7 +23,7 @@ function App() {
   return (
     <Template>
       <Header>Сегодня</Header>
-      <Title>Что-бы изменить todo , нужно нажать на текст в режиме редактирования ( кнопка править ) .</Title>
+      <Title>Что-бы изменить todo , нужно нажать на текст todo в режиме редактирования ( кнопка править ) .</Title>
       <EditListButtons>
         {state.todos.allTodos.length !== 0 ? (
           <>
