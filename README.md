@@ -1,5 +1,5 @@
-Установка - npm install
-Запуск - npm start
+Установка - npm install , 
+запуск - npm start
 
 Cсылка на netlify - https://reverent-spence-de104f.netlify.app/ 
 
