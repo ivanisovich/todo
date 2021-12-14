@@ -28,6 +28,11 @@
   margin-top: 20px;
 }
 
+.todo-deleting button {
+  position: absolute;
+  margin-top: 20px;
+}
+
 .todo-completed {
   background-image: url("./img/todo_button_active.png");
   background-repeat: no-repeat;
