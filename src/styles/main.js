@@ -3,6 +3,8 @@ export const Template = styled.div`
   padding-bottom: 62px;
   padding-top: 66px;
   white-space: nowrap;
+  padding-left: 40px;
+  padding-right:40px;
 `;
 
 export const Header = styled.h1`
@@ -10,14 +12,14 @@ export const Header = styled.h1`
   letter-spacing: -0.1vw;
   font-size: 28px;
   padding-bottom: 43px;
-  padding-left: 40px;
 `;
 
 export const Title = styled.p`
   font-family: "Gilroy-Bold", sans-serif;
   font-size: 16px;
+  white-space: pre-wrap;
   padding-bottom: 43px;
-  padding-left: 40px;
+  min-width:240px;
 `;
 
 export const StyledTodoList = styled.ul`
@@ -41,7 +43,6 @@ export const TodoEmpty = styled(StyledTodo)`
 `;
 
 export const Modal = styled.form`
-  margin-left: 35vw;
   position: absolute;
   height: calc(85vh - 150px);
   max-width: 300px;
@@ -50,7 +51,6 @@ export const Modal = styled.form`
   margin-top: -12.2rem;
   border-radius: 40px 40px 40px 40px;
   padding: 41px;
-
   display: block;
   background: #ffffff;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
@@ -171,7 +171,7 @@ export const ButtonWrapper = styled.button`
   margin-top: 24.8rem;
   align-items: flex-end;
   max-height: 611px;
-  margin-left: 73.9%;
+  margin-left: 50vw;
   z-index: -1;
 `;
 export const ButtonModalOpen = styled.img`
