@@ -11,10 +11,13 @@ const TodoInput = ({ createTodo, handler, setModalOpen }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (task !== "") {
+    
+    if (task.text) {
       createTodo({ task, date });
       setTask("");
       setModalOpen(false);
+    } else if (!task.text) {
+      alert("Введите текст задачи!")
     }
   };
 
